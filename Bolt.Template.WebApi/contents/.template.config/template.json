@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Ruhul Amin",
+  "classifications": [ "Web/WebApi" ],
+  "identity": "Bolt.Sample.WebApi",
+  "name": "Bolt.Template.WebApi",
+  "shortName": "bolt-webapi",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Bolt.Sample.WebApi",
+  "preferNameDirectory": true,
+  "symbols": {
+    "appName": {
+      "type": "parameter",
+      "description": "Provide a frindly app name all lower case seperated by `-` e.g. api-bookworm",
+      "isRequired": true,
+      "replaces": "__app_name__"
+    },
+    "instanceCount": {
+      "type": "parameter",
+      "datatype": "int",
+      "isRequired": true,
+      "defaultValue": "2",
+      "replaces": "__app_count__"
+    },
+    "groupName": {
+      "type": "parameter",
+      "description": "Group used for infrastrucutre setup. give a friendly name e.g. retail",
+      "isRequired": true,
+      "replaces": "__group_name__"
+    },
+    "scope": {
+      "type": "parameter",
+      "description": "Define whether the API will be publicly available or not",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "public",
+          "description": "The api will be hosted under public ALB"
+        },
+        {
+          "choice": "private",
+          "description": "The api will be hosted under private ALB"
+        }
+      ],
+      "defaultValue": "private",
+      "replaces": "__scope__"
+    },
+    "cpu": {
+      "type": "parameter",
+      "description": "Set cpu unit required by this app to run",
+      "defaultValue": "256",
+      "replaces": "__app_cpu__"
+    },
+    "memory": {
+      "type": "parameter",
+      "description": "Set memory unit required by this app to run",
+      "defaultValue": "512",
+      "replaces": "__app_memory__"
+    },
+    "awsRegion": {
+      "type": "parameter",
+      "description": "Select the aws region",
+      "defaultValue": "ap-southeast-2",
+      "replaces": "__aws_region__"
+    },
+    "excludeSampleCode": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Set true if you don't want any sample code",
+      "defaultValue": "false"
+    },
+    "tfStateBucket": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "Name of the bucket where to store terraform state",
+      "defaultValue": "bookworm-tf-state",
+      "replaces": "__tf_bucket__"
+    },
+    "defaultEnv": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "dev",
+      "description": "Name of the env that will be default and deploy on commit",
+      "replaces": "__default_env__"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**",
+            ".template.config/**/*",
+            "**/*.filelist",
+            "**/*.user",
+            "**/*.lock.json",
+            "**/.vs/**",
+            "**/.git/**",
+            "**/logs/**",
+            "**/TestReports/**"
+          ]
+        },
+        {
+          "condition": "{excludeSampleCode}",
+          "exclude": [
+            "**/Features/Books/**",
+            "**/Features/Shared/**"
+          ]
+        }
+      ]
+    }
+  ]
+}

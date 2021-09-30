@@ -1,0 +1,14 @@
+{
+  "app": "__app_name__",
+  "environment": "test-local",
+  "data": [
+    {
+      "id": "fake-1",
+      "title": "fake-title-1"
+    },
+    {
+      "id": "fake-2",
+      "title": "fake-title-2"
+    }
+  ]
+}

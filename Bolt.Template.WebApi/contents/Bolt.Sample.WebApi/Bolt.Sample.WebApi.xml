@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.Sample.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Bolt.Sample.WebApi.Features.Books.BooksController.Get(Bolt.Sample.WebApi.Features.Books.List.BooksListRequest)">
+            <summary>
+            Return all books
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

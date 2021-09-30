@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>0.0.1-beta047</PackageVersion>
+    <PackageId>Bolt.Template.WebApi</PackageId>
+    <Title>Web Api Template</Title>
+    <Authors>Mohammad Ruhul Amin</Authors>
+    <Description>Templates to use when creating an web api with github actions to aws ecs.</Description>
+    <PackageTags>dotnet-new;templates;Bolt.Template.WebApi</PackageTags>
+    
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    
+    <TargetFramework>net5.0</TargetFramework>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="contents\**\*" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+  
+</Project>
